@@ -6,3 +6,8 @@ html, body{
     min-height: 100%;
     overflow: hidden;
 }
+
+.list-item-active {
+    background-color: #0076ff;
+    color: white;
+}

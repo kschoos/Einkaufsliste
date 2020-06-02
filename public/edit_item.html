@@ -1,61 +1,51 @@
 <ons-page>
-    <ons-toolbar>
-        <div class="left">
-            <ons-back-button>Zereck</ons-back-button>
-        </div>
-        <div class="center"></div>
-      </ons-toolbar>
-      
-      <p class="intro">
-        Geijestand editeieren<br><br>
-      </p>
+  <ons-toolbar>
+      <div class="left">
+          <ons-back-button>Zereck</ons-back-button>
+      </div>
+      <div class="center"></div>
+  </ons-toolbar>
 
-      <ons-list>
-          <ons-list-header>Informatiounen</ons-list-header>
-          <ons-list-item>
-            <div class="left">
-                Name: 
-            </div> 
-            <label class="center">
-                <input type="text" class="text-input text-input--underbar" placeholder="Enter Name..." value="">
-            </label>
-          </ons-list-item>
-          <ons-list-item>
-            <div class="left">
-                Butteker: 
-            </div> 
-            <ul class="list">
-                <li class="list-item">
-                  <div class="list-item__center">Dog</div>
-                </li>
-                <li class="list-item">
-                  <div class="list-item__center">Cat</div>
-                </li>
-                <li class="list-item">
-                  <div class="list-item__center">Hamster</div>
-                </li>
-                <li class="list-item">
-                <div 
-                    style="background-color: mediumslateblue; color: white"
-                    class="list-item__center" onclick="console.log('Bla')">
-                    Dabaimaachen...
-                </div>
-                </li>
-            </ul>
-          </ons-list-item>
-          <ons-list-item>
-            <div class="left">
-                Regal: 
-            </div> 
-            <label class="center">
-                <input type="text" class="text-input text-input--underbar" placeholder="Enter Name..." value="">
-            </label>
-          </ons-list-item>
-        </ons-list>
+  <h3 class="intro">
+      Geijestand editeieren<br><br>
+  </h3>
 
-      <ons-fab position="bottom right">
-        <ons-icon
-          icon="md-plus">
-        </ons-icon>
-      </ons-fab>
+  <ons-list>
+      <ons-list-header>Numm</ons-list-header>
+      <ons-list-item>
+          <label class="center">
+              <input type="text" class="text-input text-input--underbar" placeholder="Numm aginn..." value="">
+          </label>
+      </ons-list-item>
+      <ons-list-header>Butteker</ons-list-header>
+      <ons-list-item>
+          <!-- <div class="left">
+              Butteker:
+          </div> -->
+          <div class="center">
+              <ons-list>
+                  <ons-list-item>Item A</ons-list-item>
+                  <ons-list-item class='list-item-active'>Item B</ons-list-item>
+                  <ons-list-item>Item C</ons-list-item>
+                  <ons-list-item>
+                      <ons-button modifier="light">
+                          Dabaimaachen...
+                      </ons-button>
+                      <!-- <div style="background-color: mediumslateblue; color: white; padding: 10px">
+                          Dabaimaachen...
+                      </div> -->
+                  </ons-list-item>
+              </ons-list>
+          </div>
+      </ons-list-item>
+      <ons-list-header>Regal</ons-list-header>
+      <ons-list-item>
+          Placeholder-Regal
+      </ons-list-item>
+  </ons-list>
+
+  <ons-fab position="bottom right">
+      <ons-icon icon="md-plus">
+      </ons-icon>
+  </ons-fab>
 </ons-page>
