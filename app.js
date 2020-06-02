@@ -28,33 +28,52 @@ var Shop = mongoose.model('Shop', ShopSchema);
 var Shelf = mongoose.model('Shelf', ShelfSchema);
 var Item = mongoose.model('Item', ItemSchema);
 
-kuehlRegal = new Shelf({name: "Kühlregal", type: "kuehl"});
-rewe = new Shop({name: "Rewe", shelves: [kuehlRegal]});
-kinderPinguin = new Item({name: "Kinder Pinguin", shops: [rewe], shelf: kuehlRegal});
+// kuehlRegal = new Shelf({name: "Kühlregal", type: "kuehl"});
+// rewe = new Shop({name: "Rewe", shelves: [kuehlRegal]});
+// kinderPinguin = new Item({name: "Kinder Pinguin", shops: [rewe], shelf: kuehlRegal});
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  Shop.deleteMany({}, console.log);
-  Shelf.deleteMany({}, console.log);
-  Item.deleteMany({}, console.log);
+  // Shop.deleteMany({}, console.log);
+  // Shelf.deleteMany({}, console.log);
+  // Item.deleteMany({}, console.log);
 
   // we're connected!
-  kuehlRegal.save(function (err, kuehlRegal) {
-    if (err) return console.error(err);
-  })
-  rewe.save(function (err, rewe) {
-    if (err) return console.error(err);
-  })
-  kinderPinguin.save(function (err, pingu) {
-    if (err) return console.error(err);
-  })
+  // kuehlRegal.save(function (err, kuehlRegal) {
+  //   if (err) return console.error(err);
+  // })
+  // rewe.save(function (err, rewe) {
+  //   if (err) return console.error(err);
+  // })
+  // kinderPinguin.save(function (err, pingu) {
+  //   if (err) return console.error(err);
+  // })
 });
 
 app.get('/', function (req, res) {
     // res.send()
 });
 
+app.get('/shops', function (req, res) {
+  // res.send(Shop.find({}));
+  Shop.find({}, function(err, shops){
+    res.send(shops);
+  });
+})
+
+app.put('/shops/:shopName', function(req, res){
+  Shop.find({name: req.params.shopName}, function(err, shops){
+    if(shops.length){
+      res.status(400).end();
+    }
+    else {
+      newShop = new Shop({name: req.params.shopName, shelves: []});
+      newShop.save()
+    }
+  })
+})
+
 app.listen(process.env.PORT, function () {
-  console.log('Example app listening on port 3000!');
+  console.log('Example app listening on port ' + process.env.PORT);
 });

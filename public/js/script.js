@@ -21,3 +21,45 @@ ons.ready(function() {
         }
     };
 })
+
+document.addEventListener('show', function (event) {
+    if (event.target.matches('#shops')) {
+      $("#shop-list").empty();
+      $.get(
+          "shops",
+          function(data) {
+            console.log(data);
+            data.forEach(function(datum){
+                $("#shop-list").append(
+                  "<ons-card modifier='material'>" +
+                    '<div class="title">' +
+                      datum.name +
+                    "</div>" +
+                    '<div class="content">' + 
+                    "</div>"+
+                  "</ons-card>"
+              )
+            })
+          }
+      );
+    }
+
+    if (event.target.matches('#edit_shop')) {
+        $("#save_button").on('click', function(event){
+            var name = $("#name").val();
+            if(name !== ""){
+                $.ajax({
+                    url: 'shops/' +  name,
+                    type: 'PUT',
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    failure: function(response) {
+                        console.log(response);
+                    }
+                })
+            }
+            document.getElementById('myNav').popPage();
+        })
+      }
+  }, false);

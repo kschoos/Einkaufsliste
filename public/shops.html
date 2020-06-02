@@ -1,22 +1,17 @@
-<ons-page>
-    <ons-toolbar>
-        <div class="left">
-            <ons-back-button>Home</ons-back-button>
-        </div>
-        <div class="center"></div>
-      </ons-toolbar>
+<ons-page id="shops">
+  <ons-toolbar>
+    <div class="left">
+      <ons-back-button>Zereck</ons-back-button>
+    </div>
+    <div class="center">Butteker</div>
+  </ons-toolbar>
 
-      <p class="intro">
-        Butteker<br><br>
-      </p>
+  <ons-list id="shop-list">
+  </ons-list>
 
-      <ons-list id="kitten-list">
-        <ons-list-header>Akaafslëscht</ons-list-header>
-      </ons-list>
+  <ons-fab position="bottom right" onclick="fn.pushPage({'id': 'edit_shop.html', 'title': 'Edit Item'})">
+    <ons-icon icon="md-plus">
+    </ons-icon>
+  </ons-fab>
 
-      <ons-fab position="bottom right" onclick="fn.pushPage({'id': 'edit_shop.html', 'title': 'Edit Item'})">
-        <ons-icon
-          icon="md-plus">
-        </ons-icon>
-      </ons-fab>
 </ons-page>
