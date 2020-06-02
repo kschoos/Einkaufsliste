@@ -2,10 +2,11 @@ var express = require('express');
 var app = express();
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/einkaufsliste', {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
 
 app.use(express.static('public'));
 app.use(express.static('node_modules/jquery/dist'));
+
 
 var ShelfSchema = new mongoose.Schema({
   name: String,
@@ -54,6 +55,6 @@ app.get('/', function (req, res) {
     // res.send()
 });
 
-app.listen(3000, function () {
+app.listen(process.env.PORT, function () {
   console.log('Example app listening on port 3000!');
 });
